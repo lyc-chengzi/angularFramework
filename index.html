@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+    <meta charset="UTF-8">
+    <title>测试angular</title>
+</head>
+<body>
+    <div>angular主页</div>
+    <a ui-sref="view1">第一页</a><a ui-sref="view2">第二页</a>
+    <div ui-view=""></div>
+    <script src="app/bower_components/angular/angular.min.js"></script>
+    <script src="app/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script>
+        angular.module('test',[
+                'ui.router'
+        ]).config(['$stateProvider', function ($stateProvider) {
+            $stateProvider
+                .state('view1', {
+                    url: '/view1',
+                    title: '首页',
+                    templateUrl: 'app/src/home/view1/view1.html'
+                })
+                .state('view2', {
+                    url: '/view2',
+                    title: '首页',
+                    templateUrl: 'app/src/home/view2/view2.html'
+                });
+        }]);
+    </script>
+</body>
+</html>
